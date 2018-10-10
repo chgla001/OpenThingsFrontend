@@ -1,111 +1,25 @@
 <div class="container">
-
-  <!-- <div class="folderlist">
-    <div class="folderlist__headline" (click)="openFavourites = !openFavourites">
-      <div class="folderlist__opener">
-        <i class="fa fa-caret-right"></i>
-      </div>
-      <div class="folderlist__title">Favoriten</div>
-    </div>
-    <div *ngIf="openFavourites == true">
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">foldertitle</div>
-      </div>
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">foldertitle</div>
-      </div>
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">foldertitle</div>
-      </div>
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">foldertitle</div>
-      </div>
-    </div>
-  </div> -->
   <div *ngFor="let folderlist of folderlists;let i=index">
     <div class="folderlist">
       <div class="folderlist__headline" (click)="folderlist.open = !folderlist.open">
         <div class="folderlist__opener">
-          <i class="fa fa-caret-right"></i>
+          <i class="fa fa-fw fa-caret-right" *ngIf="!folderlist.open; else open"></i>
+          <ng-template #open>
+            <i class="fa fa-fw fa-caret-down"></i>
+          </ng-template>
         </div>
         <div class="folderlist__title">{{folderlist.foldername}}</div>
       </div>
-      <div *ngIf="openWork == true">
-        <!-- <div class="folder">
-          <div class="folder__icon">
-            <i class="fa fa-folder-o"></i>
-          </div>
-          <div class="folder__title">CDU</div>
-        </div>
-        <div class="folder">
-          <div class="folder__icon">
-            <i class="fa fa-folder-o"></i>
-          </div>
-          <div class="folder__title">SMS Group</div>
-        </div>
-        <div class="folder">
-          <div class="folder__icon">
-            <i class="fa fa-folder-o"></i>
-          </div>
-          <div class="folder__title">DKV (Lunadis)</div>
-        </div> -->
+      <div *ngIf="folderlist.open">
         <div *ngFor="let folder of folderlist.children">
           <div class="folder">
             <div class="folder__icon">
-              <i class="fa fa-folder-o"></i>
+              <i class="fa fa-fw fa-folder-o"></i>
             </div>
-            <div class="folder__title">{{folder.foldername}} folder</div>
+            <div class="folder__title">{{folder.foldername}}</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div class="folderlist">
-    <div class="folderlist__headline" (click)="openPrivate = !openPrivate">
-      <div class="folderlist__opener">
-        <i class="fa fa-caret-right"></i>
-      </div>
-      <div class="folderlist__title">Privat</div>
-    </div>
-    <div *ngIf="openPrivate == true">
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">Hausaufgaben</div>
-      </div>
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">Steuern</div>
-      </div>
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">Eltern</div>
-      </div>
-      <div class="folder">
-        <div class="folder__icon">
-          <i class="fa fa-folder-o"></i>
-        </div>
-        <div class="folder__title">Uni</div>
-      </div>
-    </div>
-  </div> -->
-
 </div>

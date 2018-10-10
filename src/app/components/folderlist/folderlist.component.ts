@@ -32,5 +32,6 @@ export class FolderlistComponent implements OnInit {
     //   (data) => console.log(data), // success path
     //   error => console.log(error) // error path
     // );
+
   }
 }

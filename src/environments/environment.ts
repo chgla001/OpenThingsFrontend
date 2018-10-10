@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   folderlist: [{
-    foldername: 'Favoriten',
+    foldername: 'Home',
     children: [{
       foldername: 'foldername'
     },
