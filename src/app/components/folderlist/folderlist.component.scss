@@ -1,0 +1,33 @@
+.folderlist {
+  margin-top: 15px;
+
+  &__opener {
+    display: inline;
+  }
+
+  &__title {
+    display: inline;
+  }
+
+  &__headline {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+}
+
+.folder {
+  padding: 10px 5px 10px 15px;
+
+  &:hover{
+      cursor: pointer;
+  }
+  &__icon {
+    display: inline;
+  }
+
+  &__title {
+    display: inline;
+  }
+}

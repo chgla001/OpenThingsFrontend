@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="edit-button-row">
+    <div>
+      <button class="btn edit-button" (click)="execCmd('bold');"><i class="fa fa-bold"></i></button>
+      <button class="btn edit-button" (click)="execCmd('italic');"><i class="fa fa-italic"></i></button>
+      <button class="btn edit-button" (click)="execCmd('underline');"><i class="fa fa-underline"></i></button>
+      <button class="btn edit-button" (click)="execCmd('strikeThrough');"><i class="fa fa-strikethrough"></i></button>
+    </div>
+    <div>
+      <button class="btn edit-button" (click)="execCmd('justifyLeft');"><i class="fa fa-align-left"></i></button>
+      <button class="btn edit-button" (click)="execCmd('justifyCenter');"><i class="fa fa-align-center"></i></button>
+      <button class="btn edit-button" (click)="execCmd('justifyRight');"><i class="fa fa-align-right"></i></button>
+      <button class="btn edit-button" (click)="execCmd('justifyFull');"><i class="fa fa-align-justify"></i></button>
+    </div>
+    <div>
+      <button class="btn edit-button" (click)="execCmd('indent');"><i class="fa fa-indent"></i></button>
+      <button class="btn edit-button" (click)="execCmd('outdent');"><i class="fa fa-dedent"></i></button>
+    </div>
+    <div>
+      <button class="btn edit-button" (click)="execCmd('subscript');"><i class="fa fa-subscript"></i></button>
+      <button class="btn edit-button" (click)="execCmd('superscript');"><i class="fa fa-superscript"></i></button>
+    </div>
+    <div>
+      <button class="btn edit-button" (click)="execCmd('undo');"><i class="fa fa-undo"></i></button>
+      <button class="btn edit-button" (click)="execCmd('redo');"><i class="fa fa-repeat"></i></button>
+    </div>
+    <div>
+      <button class="btn edit-button" (click)="execCmd('insertUnorderedList');"><i class="fa fa-list-ul"></i></button>
+      <button class="btn edit-button" (click)="execCmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
+    </div>
+
+  </div>
+
+  <div class="edit-button-row">
+    <select class="btn edit-button" (change)="execCommandWithArg('formatBlock', this.value);">
+      <option value="H1">H1</option>
+      <option value="H2">H2</option>
+      <option value="H3">H3</option>
+      <option value="H4">H4</option>
+      <option value="H5">H5</option>
+      <option value="H6">H6</option>
+    </select>
+
+    <div>
+      <select class="btn edit-button" (change)="execCommandWithArg('fontName', this.value);">
+        <option value="Arial" class="font-option font-option__arial">Arial</option>
+        <option value="Courier" class="font-option font-option__courier">Courier</option>
+        <option value="Georgia" class="font-option font-option__georgia">Georgia</option>
+        <option value="Tahoma" class="font-option font-option__tahoma">Tahoma</option>
+        <option value="Times New Roman" class="font-option font-option__times">Times New Roman</option>
+        <option value="Verdana" class="font-option font-option__verdana">Verdana</option>
+      </select>
+      <select class="btn edit-button" (change)="execCommandWithArg('fontSize', this.value);">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+    </div>
+    <div>
+      Fore Color: <input type="color" (change)="execCommandWithArg('foreColor', this.value);">
+      Background: <input type="color" (change)="execCommandWithArg('hiliteColor', this.value);">
+    </div>
+    <div>
+      <button class="btn edit-button" (click)="execCommandWithArg('insertImage', prompt('Enter the image URL', ''));">
+        <i class="fa fa-file-image-o"></i>
+      </button>
+      <button class="btn edit-button" (click)="execCmd('insertHorizontalRule');">HR</button>
+      <button class="btn edit-button" (click)="execCommandWithArg('createLink', prompt('Enter a URL', 'http://'));"><i
+          class="fa fa-link"></i></button>
+      <button class="btn edit-button" (click)="execCmd('unlink');"><i class="fa fa-unlink"></i></button>
+    </div>
+
+    <button class="btn edit-button" (click)="toggleSource();"><i class="fa fa-code"></i></button>
+  </div>
+  <input class="note-title" type="text" placeholder="Betreff">
+  <iframe id="editor"></iframe>
+</div>

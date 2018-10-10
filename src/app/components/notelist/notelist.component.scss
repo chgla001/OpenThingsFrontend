@@ -1,0 +1,31 @@
+.search {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  border: 1px solid #cecece;
+  padding: 8px;
+}
+
+.new-note {
+  margin-bottom: 5px;
+}
+
+.note {
+  padding: 10px 5px;
+  border-bottom: 1px solid #cecece;
+  margin-bottom: 5px;
+  &:hover{
+      cursor: pointer;
+      background-color: #f1f0f0;
+  }
+
+  &__title {
+    font-weight: bold;
+    color: #474747;
+  }
+
+  &__date {
+      color: #7e7e7e;
+    font-size: 0.8rem;
+  }
+}
