@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Folderlist } from 'classes/folderlist';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class FolderlistComponent implements OnInit {
   folderlists: Array<Folderlist>;
   serverUrl = 'http://127.0.0.1:4000';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     console.log('init');
@@ -33,5 +34,9 @@ export class FolderlistComponent implements OnInit {
     //   error => console.log(error) // error path
     // );
 
+  }
+
+  routeTo(folderId) {
+    this.router.navigate(['/' + folderId]);
   }
 }
