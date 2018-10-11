@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Folderlist } from 'classes/folderlist';
 import { Router } from '@angular/router';
+import { TaskService } from 'app/services/task-service.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class FolderlistComponent implements OnInit {
   folderlists: Array<Folderlist>;
   serverUrl = 'http://127.0.0.1:4000';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private taskService: TaskService) { }
 
   ngOnInit() {
     console.log('init');
@@ -36,7 +37,7 @@ export class FolderlistComponent implements OnInit {
 
   }
 
-  routeTo(folderId) {
-    this.router.navigate(['/' + folderId]);
+  setFolderId(folderId) {
+    this.taskService.folderid = folderId;
   }
 }

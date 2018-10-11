@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { FolderlistComponent } from './components/folderlist/folderlist.component';
 import { NotelistComponent } from './components/notelist/notelist.component';
 import { EditviewComponent } from './components/editview/editview.component';
-import { EditorPageComponent } from './editor-page/editor-page.component';
+import { EditorPageComponent } from './components/editor-page/editor-page.component';
 
 /* Adding Electron */
 import { NgxElectronModule } from 'ngx-electron';

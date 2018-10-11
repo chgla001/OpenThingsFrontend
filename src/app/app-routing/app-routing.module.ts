@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EditorPageComponent } from 'app/editor-page/editor-page.component';
+import { EditorPageComponent } from 'app/components/editor-page/editor-page.component';
 
 const routes: Routes = [
   { path: '', component: EditorPageComponent },

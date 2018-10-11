@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngFor="let folderlist of folderlists;let i=index">
     <div class="folderlist">
-      <div class="folderlist__headline" (click)="folderlist.open = !folderlist.open" (click)="routeTo(folderlist.id)">
+      <div class="folderlist__headline" (click)="folderlist.open = !folderlist.open" (click)="setFolderId(folderlist.id)">
         <div class="folderlist__opener">
           <i class="fa fa-fw fa-caret-right" *ngIf="!folderlist.open; else open"></i>
           <ng-template #open>
@@ -12,7 +12,7 @@
       </div>
       <div *ngIf="folderlist.open">
         <div *ngFor="let folder of folderlist.children">
-          <div class="folder" (click)="routeTo(folder.id)">
+          <div class="folder" (click)="setFolderId(folder.id)">
             <div class="folder__icon">
               <i class="fa fa-fw fa-folder-o"></i>
             </div>
