@@ -16,6 +16,7 @@ export class FolderlistComponent implements OnInit {
   openPrivate = false;
   folderlists: Array<Folderlist>;
   serverUrl = 'http://127.0.0.1:4000';
+  selectedFolderid;
 
   constructor(private router: Router, private taskService: TaskService) { }
 
@@ -35,9 +36,21 @@ export class FolderlistComponent implements OnInit {
     //   error => console.log(error) // error path
     // );
 
+    this.taskService.folderid$.subscribe(
+      (folderid) => {
+        // console.log('changed', folderid);
+        this.selectedFolderid = folderid;
+      }
+    );
+
   }
 
   setFolderId(folderId) {
     this.taskService.folderid = folderId;
+  }
+
+  showContextmenu(event) {
+    event.preventDefault();
+    console.log('contextmenu', event);
   }
 }

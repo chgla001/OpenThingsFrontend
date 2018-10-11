@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Note } from 'classes/note';
-import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from 'app/services/task-service.service';
 
 @Component({
@@ -12,25 +11,27 @@ import { TaskService } from 'app/services/task-service.service';
 export class NotelistComponent implements OnInit {
   notelist: Array<Note>;
   subscriber;
-  folderid;
+  selectedFolderId;
+  selectedTaskId;
 
-  constructor(private route: ActivatedRoute, private router: Router, private taskService: TaskService) { }
+  constructor(private taskService: TaskService) { }
 
 
   ngOnInit() {
     console.log('notelist init');
     this.notelist = environment.notelist;
-    // this.subscriber = this.route.params.subscribe(params => {
-    //   this.id = +params['folderid']; // (+) converts string 'id' to a number
-    //   console.log(this.id);
-    // });
-
-
 
     this.taskService.folderid$.subscribe(
       (folderid) => {
         console.log('changed', folderid);
-        this.folderid = folderid;
+        this.selectedFolderId = folderid;
+      }
+    );
+
+    this.taskService.taskid$.subscribe(
+      (taskid) => {
+        console.log('changed', taskid);
+        this.selectedTaskId = taskid;
       }
     );
 

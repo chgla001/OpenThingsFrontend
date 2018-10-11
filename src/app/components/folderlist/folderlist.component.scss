@@ -1,5 +1,4 @@
 .folderlist {
-  margin-top: 15px;
 
   &__opener {
     display: inline;
@@ -11,15 +10,19 @@
   }
 
   &__headline {
+    padding: 5px 0px 5px 0px;
     &:hover {
       cursor: pointer;
+    }
+    &--active{
+      background-color: rgb(195, 227, 255);
     }
   }
 
 }
 
 .folder {
-  padding: 10px 5px 10px 15px;
+  padding: 5px 5px 5px 15px;
 
   &:hover{
       cursor: pointer;
@@ -31,5 +34,8 @@
 
   &__title {
     display: inline;
+    &--active{
+      background-color: rgb(195, 227, 255);
+    }
   }
 }
