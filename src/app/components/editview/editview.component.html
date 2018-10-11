@@ -1,5 +1,12 @@
 <div class="container">
   <div class="edit-button-row">
+    <button class="btn edit-button" (click)="saveNote()" title="Speichern"><i class="fa fa-save"></i></button>
+    <div>
+      <button class="btn edit-button" (click)="execCmd('undo');" title="Rückgängig"><i class="fa fa-undo"></i></button>
+      <button class="btn edit-button" (click)="execCmd('redo');" title="Wiederholen"><i class="fa fa-repeat"></i></button>
+    </div>
+  </div>
+  <div class="edit-button-row">
     <div>
       <button class="btn edit-button" (click)="execCmd('bold');"><i class="fa fa-bold"></i></button>
       <button class="btn edit-button" (click)="execCmd('italic');"><i class="fa fa-italic"></i></button>
@@ -19,10 +26,6 @@
     <div>
       <button class="btn edit-button" (click)="execCmd('subscript');"><i class="fa fa-subscript"></i></button>
       <button class="btn edit-button" (click)="execCmd('superscript');"><i class="fa fa-superscript"></i></button>
-    </div>
-    <div>
-      <button class="btn edit-button" (click)="execCmd('undo');"><i class="fa fa-undo"></i></button>
-      <button class="btn edit-button" (click)="execCmd('redo');"><i class="fa fa-repeat"></i></button>
     </div>
     <div>
       <button class="btn edit-button" (click)="execCmd('insertUnorderedList');"><i class="fa fa-list-ul"></i></button>

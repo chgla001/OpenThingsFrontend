@@ -28,26 +28,32 @@ export const environment = {
   notelist: [{
     id: 1,
     title: 'note title 1',
-    date: '19.04.2018'
+    date: '19.04.2018',
+    text: 'hallo1'
+
   },
   {
     id: 2,
     title: 'note title 2',
-    date: '19.04.2018'
+    date: '19.04.2018',
+    text: 'hallo2'
   },
   {
     id: 3,
     title: 'note title 3',
-    date: '19.04.2018'
+    date: '19.04.2018',
+    text: 'hallo3'
   },
   {
     id: 4,
     title: 'note title 4',
-    date: '19.04.2018'
+    date: '19.04.2018',
+    text: 'hallo4'
   },
   {
     id: 5,
     title: 'note title 5',
-    date: '19.04.2018'
+    date: '19.04.2018',
+    text: 'hallo5'
   }]
 };

@@ -21,7 +21,7 @@ export class FolderlistComponent implements OnInit {
   constructor(private router: Router, private taskService: TaskService) { }
 
   ngOnInit() {
-    console.log('init');
+    // console.log('init');
     // const testuser = {
     //   name: 'hannes',
     //   email: 'test',
@@ -29,7 +29,7 @@ export class FolderlistComponent implements OnInit {
     //   pgpkey: 'key'
     // };
     // database.createUser(testuser);
-    console.log(environment.folderlist);
+    // console.log(environment.folderlist);
     this.folderlists = environment.folderlist;
     // this.http.get(this.serverUrl + '/folderlist').subscribe(
     //   (data) => console.log(data), // success path

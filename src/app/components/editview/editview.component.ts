@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'app/services/task-service.service';
+import { environment } from '../../../environments/environment';
+import { Note } from 'classes/note';
 
 @Component({
   selector: 'app-editview',
@@ -11,19 +13,25 @@ export class EditviewComponent implements OnInit {
   editor: HTMLIFrameElement;
   showingSourceCode = false;
   isInEditMode = true;
-  taskid;
+  notelist;
+  noteid;
+  selectedNote: Note;
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    console.log('on init editview');
+    // console.log('on init editview');
     this.editor = (<HTMLIFrameElement>document.getElementById('editor'));
     this.editor.contentWindow.document.designMode = 'On';
 
+    // console.log(environment.notelist);
+    this.notelist = environment.notelist;
+
     this.taskService.taskid$.subscribe(
-      (taskid) => {
-        console.log('changed', taskid);
-        this.taskid = taskid;
+      (noteid) => {
+        // console.log('changed', noteid);
+        this.noteid = noteid;
+        this.getNoteFromNoteList(this.noteid);
       }
     );
   }
@@ -46,5 +54,18 @@ export class EditviewComponent implements OnInit {
         = this.editor.contentWindow.document.getElementsByTagName('body')[0].innerHTML;
       this.showingSourceCode = true;
     }
+  }
+
+  getNoteFromNoteList(noteid) {
+    this.notelist.forEach((element: Note) => {
+      if (element.id === noteid) {
+        // console.log(element);
+        this.selectedNote = element;
+        this.editor.contentWindow.document.getElementsByTagName('body')[0].innerHTML = this.selectedNote.text;
+      }
+    });
+  }
+  saveNote() {
+    console.log('saved', this.editor.contentWindow.document.getElementsByTagName('body')[0].innerHTML);
   }
 }

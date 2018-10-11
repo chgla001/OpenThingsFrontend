@@ -13,24 +13,25 @@ export class NotelistComponent implements OnInit {
   subscriber;
   selectedFolderId;
   selectedTaskId;
+  searchNote = '';
 
   constructor(private taskService: TaskService) { }
 
 
   ngOnInit() {
-    console.log('notelist init');
+    // console.log('notelist init');
     this.notelist = environment.notelist;
 
     this.taskService.folderid$.subscribe(
       (folderid) => {
-        console.log('changed', folderid);
+        // console.log('changed', folderid);
         this.selectedFolderId = folderid;
       }
     );
 
     this.taskService.taskid$.subscribe(
       (taskid) => {
-        console.log('changed', taskid);
+        // console.log('changed', taskid);
         this.selectedTaskId = taskid;
       }
     );

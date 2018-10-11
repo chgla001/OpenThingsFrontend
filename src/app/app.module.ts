@@ -16,13 +16,18 @@ import { EditorPageComponent } from './components/editor-page/editor-page.compon
 /* Adding Electron */
 import { NgxElectronModule } from 'ngx-electron';
 
+
+/* Pipes */
+import { SearchNoteFilter } from './pipes/search-note-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     FolderlistComponent,
     NotelistComponent,
     EditviewComponent,
-    EditorPageComponent
+    EditorPageComponent,
+    SearchNoteFilter
   ],
   imports: [
     BrowserModule,
