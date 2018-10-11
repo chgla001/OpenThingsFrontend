@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from 'app/services/task-service.service';
 
 @Component({
   selector: 'app-editview',
@@ -10,13 +11,21 @@ export class EditviewComponent implements OnInit {
   editor: HTMLIFrameElement;
   showingSourceCode = false;
   isInEditMode = true;
+  taskid;
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
     console.log('on init editview');
     this.editor = (<HTMLIFrameElement>document.getElementById('editor'));
     this.editor.contentWindow.document.designMode = 'On';
+
+    this.taskService.taskid$.subscribe(
+      (taskid) => {
+        console.log('changed', taskid);
+        this.taskid = taskid;
+      }
+    );
   }
 
   execCmd(command) {

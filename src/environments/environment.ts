@@ -6,17 +6,48 @@
 export const environment = {
   production: false,
   folderlist: [{
+    id: 1,
     foldername: 'Home',
     children: [{
+      id: 2,
       foldername: 'foldername'
     },
-    { foldername: 'foldername' }]
+    {
+      id: 3,
+      foldername: 'foldername'
+    }]
   },
   {
+    id: 4,
     foldername: 'Work',
-    children: [{
-      foldername: 'foldername'
-    },
-    { foldername: 'foldername' }]
+    children: [
+      { id: 5, foldername: 'foldername' },
+      { id: 6, foldername: 'foldername' }
+    ]
+  }],
+  notelist: [{
+    id: 1,
+    title: 'note title 1',
+    date: '19.04.2018'
+  },
+  {
+    id: 2,
+    title: 'note title 2',
+    date: '19.04.2018'
+  },
+  {
+    id: 3,
+    title: 'note title 3',
+    date: '19.04.2018'
+  },
+  {
+    id: 4,
+    title: 'note title 4',
+    date: '19.04.2018'
+  },
+  {
+    id: 5,
+    title: 'note title 5',
+    date: '19.04.2018'
   }]
 };
