@@ -1,8 +1,8 @@
-import { SearchNoteFilterPipe } from './search-note-filter.pipe';
+import { SearchNoteFilter } from './search-note-filter.pipe';
 
 describe('SearchNoteFilterPipe', () => {
   it('create an instance', () => {
-    const pipe = new SearchNoteFilterPipe();
+    const pipe = new SearchNoteFilter();
     expect(pipe).toBeTruthy();
   });
 });

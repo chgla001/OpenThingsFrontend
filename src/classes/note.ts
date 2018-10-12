@@ -2,7 +2,7 @@ export class Note {
     id: number;
     title: string;
     date: string;
-    text: string
+    text: string;
 
     constructor(id, title, date, text) {
         this.id = id;
@@ -10,4 +10,5 @@ export class Note {
         this.date = date;
         this.text = text;
     }
+
 };

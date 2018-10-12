@@ -14,6 +14,8 @@ export class NotelistComponent implements OnInit {
   selectedFolderId;
   selectedTaskId;
   searchNote = '';
+  showModal = false;
+  newNoteTitle = '';
 
   constructor(private taskService: TaskService) { }
 
@@ -41,5 +43,21 @@ export class NotelistComponent implements OnInit {
 
   setTaskId(taskId) {
     this.taskService.taskid = taskId;
+  }
+
+  openNewNoteModal() {
+    this.showModal = true;
+  }
+
+  hideNewNoteModal() {
+    this.showModal = false;
+    this.newNoteTitle = '';
+  }
+
+  addNewNoteToNotelist() {
+    const newNote = new Note(null, this.newNoteTitle, (new Date()).toLocaleDateString(), '');
+    this.notelist.push(newNote);
+    this.newNoteTitle = '';
+    this.showModal = false;
   }
 }

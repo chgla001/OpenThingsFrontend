@@ -1,10 +1,24 @@
 <div class="container">
-  <button class="btn btn__normal new-note"><i class="fa fa-sticky-note-o"></i> Neu</button>
+  <button class="btn btn__normal new-note" (click)="openNewNoteModal()"><i class="fa fa-sticky-note-o"></i> Neu</button>
   <input class="search" type="search" placeholder="Suchen" [(ngModel)]="searchNote">
-  <div class="note-list" *ngFor="let note of notelist | searchNoteFilter : searchNote">
-    <div class="note" (click)="setTaskId(note.id)" [class.note--active]="note.id === selectedTaskId">
+  <div class="note-list">
+    <div class="note" *ngFor="let note of notelist | searchNoteFilter : searchNote" (click)="setTaskId(note.id)"
+      [class.note--active]="note.id === selectedTaskId">
       <div class="note__title">{{note.title}}</div>
       <div class="note__date">{{note.date}}</div>
+    </div>
+  </div>
+</div>
+<div class="modal" *ngIf="(showModal)">
+  <div class="modal__window">
+    <h1 class="modal__headline">Neue Notiz</h1>
+    <div class="modal__content">
+      <p class="modal__text">Trage den Betreff der neuen Notiz ein</p>
+      <input type="text" class="modal__input" placeholder="Betreff" [(ngModel)]="newNoteTitle">
+      <div class="row">
+        <button class="btn modal__button" (click)="hideNewNoteModal()">Abbrechen</button>
+        <button class="btn modal__button" (click)="addNewNoteToNotelist()">Ok</button>
+      </div>
     </div>
   </div>
 </div>

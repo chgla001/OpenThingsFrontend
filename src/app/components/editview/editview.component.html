@@ -1,7 +1,7 @@
 <div class="container">
   <div class="edit-button-row">
-    <button class="btn edit-button" (click)="saveNote()" title="Speichern"><i class="fa fa-save"></i></button>
     <div>
+      <button class="btn edit-button" (click)="saveNote()" title="Speichern"><i class="fa fa-save"></i></button>
       <button class="btn edit-button" (click)="execCmd('undo');" title="Rückgängig"><i class="fa fa-undo"></i></button>
       <button class="btn edit-button" (click)="execCmd('redo');" title="Wiederholen"><i class="fa fa-repeat"></i></button>
     </div>
@@ -32,9 +32,9 @@
       <button class="btn edit-button" (click)="execCmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
     </div>
 
-  </div>
+  <!-- </div>
 
-  <div class="edit-button-row">
+  <div class="edit-button-row"> -->
     <select class="btn edit-button" (change)="execCommandWithArg('formatBlock', this.value);">
       <option value="H1">H1</option>
       <option value="H2">H2</option>

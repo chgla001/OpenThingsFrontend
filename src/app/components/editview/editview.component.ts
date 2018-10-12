@@ -67,5 +67,6 @@ export class EditviewComponent implements OnInit {
   }
   saveNote() {
     console.log('saved', this.editor.contentWindow.document.getElementsByTagName('body')[0].innerHTML);
+    this.selectedNote.text = this.editor.contentWindow.document.getElementsByTagName('body')[0].innerHTML;
   }
 }
