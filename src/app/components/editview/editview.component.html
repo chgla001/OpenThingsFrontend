@@ -3,7 +3,7 @@
     <div>
       <button class="btn edit-button" (click)="saveNote()" title="Speichern"><i class="fa fa-save"></i></button>
       <button class="btn edit-button" (click)="execCmd('undo');" title="Rückgängig"><i class="fa fa-undo"></i></button>
-      <button class="btn edit-button" (click)="execCmd('redo');" title="Wiederholen"><i class="fa fa-repeat"></i></button>
+      <button class="btn edit-button" (click)="execCmd('redo');" title="Wiederholen"><i class="fa fa-redo"></i></button>
     </div>
   </div>
   <div class="edit-button-row">
@@ -21,7 +21,7 @@
     </div>
     <div>
       <button class="btn edit-button" (click)="execCmd('indent');"><i class="fa fa-indent"></i></button>
-      <button class="btn edit-button" (click)="execCmd('outdent');"><i class="fa fa-dedent"></i></button>
+      <button class="btn edit-button" (click)="execCmd('outdent');"><i class="fa fa-outdent"></i></button>
     </div>
     <div>
       <button class="btn edit-button" (click)="execCmd('subscript');"><i class="fa fa-subscript"></i></button>
@@ -32,7 +32,7 @@
       <button class="btn edit-button" (click)="execCmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
     </div>
 
-  <!-- </div>
+    <!-- </div>
 
   <div class="edit-button-row"> -->
     <select id="selectHeadline" class="btn edit-button" (change)="selectHeadline()">
@@ -64,12 +64,18 @@
       </select>
     </div>
     <div>
-      Fore Color: <input type="color" (change)="execCommandWithArg('foreColor', this.value);">
-      Background: <input type="color" (change)="execCommandWithArg('hiliteColor', this.value);">
+      <!-- Fore Color: <input type="color" (change)="execCommandWithArg('foreColor', this.value);">
+      Background: <input type="color" (change)="execCommandWithArg('hiliteColor', this.value);"> -->
+      <button class="btn edit-button" (click)="execCmd('indent');"><i class="fas fa-font"></i></button>
+      <button class="btn edit-button" (click)="execCmd('outdent');"><i class="fas fa-highlighter"></i></button>
+    </div>
+
+    <div>
+      <button class="btn edit-button" (click)="execCmd('insertUnorderedList');"><i class="fa fa-list-ul"></i></button>
     </div>
     <div>
       <button class="btn edit-button" (click)="execCommandWithArg('insertImage', prompt('Enter the image URL', ''));">
-        <i class="fa fa-file-image-o"></i>
+        <i class="far fa-image"></i>
       </button>
       <button class="btn edit-button" (click)="execCmd('insertHorizontalRule');">HR</button>
       <button class="btn edit-button" (click)="execCommandWithArg('createLink', prompt('Enter a URL', 'http://'));"><i
