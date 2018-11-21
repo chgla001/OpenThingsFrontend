@@ -15,7 +15,8 @@ export class EditviewComponent implements OnInit {
   isInEditMode = true;
   notelist;
   noteid;
-  selectedNote: Note;
+  selectedNote = {} as Note;
+  selectedFont;
 
   constructor(private taskService: TaskService) { }
 
@@ -41,6 +42,8 @@ export class EditviewComponent implements OnInit {
   }
 
   execCommandWithArg(command, arg) {
+    console.log(command, arg);
+
     this.editor.contentWindow.document.execCommand(command, false, arg);
   }
 

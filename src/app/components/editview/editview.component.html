@@ -36,31 +36,31 @@
 
   <div class="edit-button-row"> -->
     <select class="btn edit-button" (change)="execCommandWithArg('formatBlock', this.value);">
-      <option value="H1">H1</option>
-      <option value="H2">H2</option>
-      <option value="H3">H3</option>
-      <option value="H4">H4</option>
-      <option value="H5">H5</option>
-      <option value="H6">H6</option>
+      <option [value]="H1">H1</option>
+      <option [value]="H2">H2</option>
+      <option [value]="H3">H3</option>
+      <option [value]="H4">H4</option>
+      <option [value]="H5">H5</option>
+      <option [value]="H6">H6</option>
     </select>
 
     <div>
-      <select class="btn edit-button" (change)="execCommandWithArg('fontName', this.value);">
-        <option value="Arial" class="font-option font-option__arial">Arial</option>
-        <option value="Courier" class="font-option font-option__courier">Courier</option>
-        <option value="Georgia" class="font-option font-option__georgia">Georgia</option>
-        <option value="Tahoma" class="font-option font-option__tahoma">Tahoma</option>
-        <option value="Times New Roman" class="font-option font-option__times">Times New Roman</option>
-        <option value="Verdana" class="font-option font-option__verdana">Verdana</option>
+      <select class="btn edit-button" (change)="execCommandWithArg('fontName', selectedFont);" [(ngModel)]="selectedFont">
+        <option [ngValue]="Arial" class="font-option font-option__arial">Arial</option>
+        <option [ngValue]="Courier" class="font-option font-option__courier">Courier</option>
+        <option [value]="Georgia" class="font-option font-option__georgia">Georgia</option>
+        <option [value]="Tahoma" class="font-option font-option__tahoma">Tahoma</option>
+        <option [value]="Times-New-Roman" class="font-option font-option__times">Times New Roman</option>
+        <option [value]="Verdana" class="font-option font-option__verdana">Verdana</option>
       </select>
       <select class="btn edit-button" (change)="execCommandWithArg('fontSize', this.value);">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
+        <option [value]="1">1</option>
+        <option [value]="2">2</option>
+        <option [value]="3">3</option>
+        <option [value]="4">4</option>
+        <option [value]="5">5</option>
+        <option [value]="6">6</option>
+        <option [value]="7">7</option>
       </select>
     </div>
     <div>
@@ -79,6 +79,6 @@
 
     <button class="btn edit-button" (click)="toggleSource();"><i class="fa fa-code"></i></button>
   </div>
-  <input class="note-title" type="text" placeholder="Betreff">
+  <input class="note-title" type="text" placeholder="Betreff" [(ngModel)]="selectedNote.title">
   <iframe id="editor"></iframe>
 </div>

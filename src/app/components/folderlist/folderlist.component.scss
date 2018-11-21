@@ -11,10 +11,12 @@
 
   &__headline {
     padding: 5px 0px 5px 0px;
+
     &:hover {
       cursor: pointer;
     }
-    &--active{
+
+    &--active {
       background-color: rgb(195, 227, 255);
     }
   }
@@ -24,9 +26,10 @@
 .folder {
   padding: 5px 5px 5px 15px;
 
-  &:hover{
-      cursor: pointer;
+  &:hover {
+    cursor: pointer;
   }
+
   &__icon {
     display: inline;
     margin-right: .5rem;
@@ -34,7 +37,25 @@
 
   &__title {
     display: inline;
-    &--active{
+
+    &--active {
+      background-color: rgb(195, 227, 255);
+    }
+  }
+}
+
+.contextmenu {
+  background-color: #fff;
+  position: absolute;
+  display: none;
+  border: 1px solid #CECECE;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+
+  &__menu-item {
+    padding: 5px;
+    cursor: pointer;
+
+    &:hover {
       background-color: rgb(195, 227, 255);
     }
   }

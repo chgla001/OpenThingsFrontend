@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngFor="let folderlist of folderlists;let i=index">
     <div class="folderlist">
-      <div class="folderlist__headline" (click)="folderlist.open = !folderlist.open; setFolderId(folderlist.id)" [class.folderlist__headline--active]="folderlist.id === selectedFolderid" (contextmenu)="showContextmenu($event)">
+      <div class="folderlist__headline" (click)="folderlist.open = !folderlist.open; setFolderId(folderlist.id)" [class.folderlist__headline--active]="folderlist.id === selectedFolderid" (contextmenu)="showContextmenu($event, folderlist)">
         <div class="folderlist__opener">
           <i class="fa fa-fw fa-caret-right" *ngIf="!folderlist.open; else open"></i>
           <ng-template #open>
@@ -12,7 +12,7 @@
       </div>
       <div *ngIf="folderlist.open">
         <div *ngFor="let folder of folderlist.children">
-          <div class="folder" (click)="setFolderId(folder.id)" [class.folder__title--active]="folder.id === selectedFolderid">
+          <div class="folder" (click)="setFolderId(folder.id)" [class.folder__title--active]="folder.id === selectedFolderid" (contextmenu)="showContextmenu($event, folder)">
             <div class="folder__icon">
               <i class="fa fa-fw fa-folder-o"></i>
             </div>
@@ -23,4 +23,21 @@
     </div>
   </div>
 </div>
+<div class="contextmenu" #contextmenu>
+    <div class="contextmenu__menu-item" (click)="openRenameFolderModal()">Umbenennen</div>
+    <div class="contextmenu__menu-item" (click)="deleteFolder()">Löschen</div>
+</div>
 
+<div class="modal" *ngIf="(showRenameFolderModal)">
+  <div class="modal__window">
+    <h1 class="modal__headline">Ordner umbenennen</h1>
+    <div class="modal__content">
+      <p class="modal__text">Trage den neuen Ordnernamen ein</p>
+      <input type="text" class="modal__input" placeholder="Ordnername" [(ngModel)]="newFolderTitle">
+      <div class="row">
+        <button class="btn modal__button" (click)="hideRenameFolderModal()">Abbrechen</button>
+        <button class="btn modal__button" (click)="renameFolder()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

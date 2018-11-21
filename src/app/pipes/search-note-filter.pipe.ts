@@ -7,7 +7,6 @@ import { Note } from 'classes/note';
 export class SearchNoteFilter implements PipeTransform {
 
   transform(notes: Note[], searchText?: string): Note[] {
-    console.log('piped');
     if (!notes) { return []; };
     if (!searchText) { return notes; };
 
@@ -15,8 +14,6 @@ export class SearchNoteFilter implements PipeTransform {
     const filteredNotes = notes.filter(note => {
       return note.title.toLowerCase().includes(searchText);
     });
-    // console.log(filteredNotes);
     return filteredNotes;
   }
-
 }
