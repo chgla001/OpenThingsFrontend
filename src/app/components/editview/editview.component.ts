@@ -45,8 +45,25 @@ export class EditviewComponent implements OnInit {
 
   execCommandWithArg(command, arg) {
     console.log(command, arg);
-
     this.iFrameDocument.execCommand(command, false, arg);
+  }
+
+  selectFont() {
+    const selectFont = <HTMLSelectElement> document.getElementById('selectFont');
+    console.log(selectFont);
+    this.execCommandWithArg('fontName', selectFont.value);
+  }
+
+  selectHeadline(){
+    const selectHeadline = <HTMLSelectElement> document.getElementById('selectHeadline');
+    console.log(selectHeadline);
+    this.execCommandWithArg('formatBlock', selectHeadline.value);
+  }
+
+  selectFontsize(){
+    const selectFontsize = <HTMLSelectElement> document.getElementById('selectFontsize');
+    console.log(selectFontsize);
+    this.execCommandWithArg('fontSize', selectFontsize.value);
   }
 
   toggleSource() {
