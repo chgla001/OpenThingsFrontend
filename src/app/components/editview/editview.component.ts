@@ -19,12 +19,13 @@ export class EditviewComponent implements OnInit {
   selectedFont;
   iFrameDocument;
   selectedFontColor;
-  selectedBackgroundColor;
-  colorList = ['000000', '993300', '333300', '003300', '003366', '000066', '333399', '333333',
-    '660000', 'FF6633', '666633', '336633', '336666', '0066FF', '666699', '666666', 'CC3333',
-    'FF9933', '99CC33', '669966', '66CCCC', '3366FF', '663366', '999999', 'CC66FF', 'FFCC33',
-    'FFFF66', '99FF66', '99CCCC', '66CCFF', '993366', 'CCCCCC', 'FF99CC', 'FFCC99', 'FFFF99',
-    'CCffCC', 'CCFFff', '99CCFF', 'CC99FF', 'FFFFFF'];
+  selectedHighlightColor;
+  colorList = ['0,0,0', '153,51,0', '51,51,0', '0,51,0', '0,51,102', '0,0,102', '51,51,153', '51,51,51',
+    '102,0,0', '255,102,51', '102,102,51', '51,102,51', '51,102,102', '00,102,255', '102,102,153', '102,102,102',
+    '204,51,51', '255,153,51', '153,204,51', '102,153,102', '102,204,204', '51,102,255', '102,51,102', '153,153,153',
+    '204,102,255', '255,204,51', '255,255,102', '153,255,102', '153,204,204', '102,204,255', '153,51,102', '204,204,204',
+    '255,153,204', '255,204,153', '255,255,153', '204,255,204', '204,255,255', '153,204,255', '204,153,255', '255,255,255'];
+  hoverColor;
 
   constructor(private taskService: TaskService) { }
 
@@ -44,6 +45,7 @@ export class EditviewComponent implements OnInit {
         this.getNoteFromNoteList(this.noteid);
       }
     );
+
   }
 
   execCmd(command) {
@@ -97,5 +99,38 @@ export class EditviewComponent implements OnInit {
   saveNote() {
     console.log('saved', this.iFrameDocument.getElementsByTagName('body')[0].innerHTML);
     this.selectedNote.text = this.iFrameDocument.getElementsByTagName('body')[0].innerHTML;
+  }
+
+  openFontColorOverlay() {
+    const fontColorPicker = <HTMLDivElement>document.getElementsByClassName('font-color-picker')[0];
+    if (fontColorPicker.style.display === 'none' || fontColorPicker.style.display.length === 0) {
+      fontColorPicker.style.display = 'block';
+    } else {
+      fontColorPicker.style.display = 'none';
+    }
+  }
+
+  openHighlightColorOverlay() {
+    const highlightColorPicker = <HTMLDivElement>document.getElementsByClassName('highlight-color-picker')[0];
+    if (highlightColorPicker.style.display === 'none' || highlightColorPicker.style.display.length === 0) {
+      highlightColorPicker.style.display = 'block';
+    } else {
+      highlightColorPicker.style.display = 'none';
+    }
+  }
+
+  setFontColor(color) {
+    console.log('selectFontColor' + color);
+    this.selectedFontColor = color;
+    const fontColorPicker = <HTMLDivElement>document.getElementsByClassName('font-color-picker')[0];
+    fontColorPicker.style.display = 'none';
+    this.execCommandWithArg('foreColor', 'rgb(' + color + ')');
+  }
+  setHighlightColor(color) {
+    console.log('selectedHighlightColor' + color);
+    this.selectedHighlightColor = color;
+    const highlightColorPicker = <HTMLDivElement>document.getElementsByClassName('highlight-color-picker')[0];
+    highlightColorPicker.style.display = 'none';
+    this.execCommandWithArg('hiliteColor', 'rgb(' + color + ')');
   }
 }

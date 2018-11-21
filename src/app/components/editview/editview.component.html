@@ -66,17 +66,50 @@
     <div>
       <!-- Fore Color: <input type="color" (change)="execCommandWithArg('foreColor', this.value);">
       Background: <input type="color" (change)="execCommandWithArg('hiliteColor', this.value);"> -->
-      <button class="btn edit-button" (click)="execCmd('indent');"><i class="fas fa-font"></i></button>
-      <button class="btn edit-button" (click)="execCmd('outdent');"><i class="fas fa-highlighter"></i></button>
+      <div class="color-button">
+        <button class="btn edit-button" (click)="openFontColorOverlay()"><i class="fas fa-font"></i></button>
+        <div class="color-picker font-color-picker">
+          <div class="color-picker__example-text">Beispiel</div>
+          <div class="color-picker__row">
+            <input type="text" class="color-picker__input" placeholder="#906090">
+            <div class="color-picker__color-teaser" [style.background-color]="'rgb('+hoverColor+')'">
+            </div>
+          </div>
+          <div class="color-picker__color-holder">
+            <ng-container *ngFor="let color of colorList">
+              <div class="color-item" [style.background-color]="'rgb('+color+')'" (mouseenter)="hoverColor = color"
+                (click)="setFontColor(color)"></div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="color-button">
+        <button class="btn edit-button" (click)="openHighlightColorOverlay()"><i class="fas fa-highlighter"></i></button>
+        <div class="color-picker highlight-color-picker">
+          <div class="color-picker__example-text">Beispiel</div>
+          <div class="color-picker__row">
+            <input type="text" class="color-picker__input" placeholder="#906090">
+            <div class="color-picker__color-teaser" [style.background-color]="'rgb('+hoverColor+')'">
+            </div>
+          </div>
+          <div class="color-picker__color-holder">
+            <ng-container *ngFor="let color of colorList">
+              <div class="color-item" [style.background-color]="'rgb('+color+')'" (mouseenter)="hoverColor = color"
+                (click)="setHighlightColor(color)"></div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div>
       <button class="btn edit-button" (click)="execCmd('insertUnorderedList');"><i class="fa fa-list-ul"></i></button>
+      <button class="btn edit-button" (click)="execCmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
     </div>
     <div>
-      <button class="btn edit-button" (click)="execCommandWithArg('insertImage', prompt('Enter the image URL', ''));">
+      <!-- <button class="btn edit-button" (click)="execCommandWithArg('insertImage', prompt('Enter the image URL', ''));">
         <i class="far fa-image"></i>
-      </button>
+      </button> -->
       <button class="btn edit-button" (click)="execCmd('insertHorizontalRule');">HR</button>
       <button class="btn edit-button" (click)="execCommandWithArg('createLink', prompt('Enter a URL', 'http://'));"><i
           class="fa fa-link"></i></button>
