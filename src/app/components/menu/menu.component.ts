@@ -8,90 +8,63 @@ declare var $: any;
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  // menuDiv: HTMLDivElement;
   menuDiv;
   menuItems = [
-    `<div class="menu__item" style="
-      display: inline;
-      position: absolute;
-      cursor: pointer;
-      font-size: 2rem;
-      padding: 15px;
-      border-radius: 50%;
-      right: 20px;
-      bottom: 20px;
-      background-color: #cecece;">
-      <i class="far fa-fw fa-clock"></i>
-     </div>`,
-    `<div style="
-     display: inline;
-     position: absolute;
-     cursor: pointer;
-     font-size: 2rem;
-     padding: 15px;
-     border-radius: 50%;
-     right: 0;
-     bottom: 0;
-     background-color: #cecece;">
-     <i class="far fa-fw fa-clock"></i>
-    </div>`,
-    `<div style="
-      display: inline;
-      position: absolute;
-      cursor: pointer;
-      font-size: 2rem;
-      padding: 15px;
-      border-radius: 50%;
-      right: 0;
-      bottom: 0;
-      background-color: #cecece;">
-      <i class="far fa-fw fa-sticky-note"></i>
-    </div>`
+    {
+      iconClass: 'far fa-fw fa-clock',
+      link: 'timetracker'
+    },
+    {
+      iconClass: 'far fa-fw fa-sticky-note',
+      link: ''
+    }
   ];
 
   constructor() { }
 
   ngOnInit() {
     this.menuDiv = $('.menu');
-    this.initMenu();
-    // this.menuDiv.onmouseenter = function (event) {
-    //   console.log(event.target);
-
-    //   // if(event.target ==)
-    //   const htmlMenuItems = document.getElementsByClassName('menu__item');
-    //   console.log(htmlMenuItems.length);
-
-    //   for (let i = 0; i <= htmlMenuItems.length; i++) {
-    //     const selectedElement = <HTMLDivElement>htmlMenuItems[i];
-    //     console.log(selectedElement);
-
-    //     // selectedElement.style.display = 'inline';
-    //   }
-    // };
-  }
-
-  initMenu() {
-    // this.menuDiv = <HTMLDivElement>document.getElementsByClassName('menu')[0];
-    // this.menuItems.forEach((nodeString, index) => {
-    //   const div = document.createElement('div');
-    //   div.innerHTML = nodeString.trim();
-    //   const menuItem = <HTMLDivElement>div.firstChild;
-    //   menuItem.style.bottom = 70 + (70 * (index - 1)) + 'px';
-    //   menuItem.style.right = 70 - (70 * (index - 1)) + 'px';
-    //   this.menuDiv.appendChild(menuItem);
-    // });
-
-    console.log('initMenu', this.menuDiv);
-
-    this.menuItems.forEach((nodeString, index) => {
-      const node = $(nodeString);
-      node.css('bottom', 70 + (70 * (index - 1)) + 'px');
-      node.css('right', 70 - (70 * (index - 1)) + 'px');
-
-      this.menuDiv.append(node);
-      console.log('done');
+    this.menuDiv.mouseover(() => {
+      $('.menu__item').each(function (index) {
+        const element = $(this);
+        element.css('visibility', 'visible');
+        element.css('opacity', '1');
+        element.css('bottom', 70 + (70 * (index - 1)) + 'px'); //stimmt
+        element.css('right', (70 * $('.menu__item').length) - (70 * (index + 1)) + 'px'); //stimmt
+      });
+      this.menuDiv.css('width', 70 * this.menuItems.length + 20 + 'px');
+      this.menuDiv.css('height', 70 * this.menuItems.length + 20 + 'px');
 
     });
+
+    this.menuDiv.mouseout(() => {
+      $('.menu__item').each(function (index) {
+        const element = $(this);
+        element.css('visibility', 'hidden');
+        element.css('opacity', '0');
+        element.css('bottom', '0');
+        element.css('right', '0');
+      });
+      this.menuDiv.css('width', '55px');
+      this.menuDiv.css('height', '55px');
+    });
+
   }
 
 }
+
+  // initMenu() {
+  //   console.log('initMenu', this.menuDiv);
+
+  //   // this.menuItems.forEach((nodeString, index) => {
+  //   //   const node = $(nodeString);
+  //   //   node.css('bottom', 70 + (70 * (index - 1)) + 'px');
+  //   //   node.css('right', 70 - (70 * (index - 1)) + 'px');
+
+  //   //   this.menuDiv.append(node);
+  //   //   console.log('done');
+
+  //   // });
+  // }
+
+// }

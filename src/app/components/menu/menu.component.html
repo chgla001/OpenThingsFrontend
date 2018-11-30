@@ -1,3 +1,10 @@
-<div class="menu" #menu>
+<div class="menu">
   <i class="menu__icon fas fa-th"></i>
+  <ng-container *ngFor="let menuItem of menuItems">
+    <a [href]="menuItem.link">
+      <div class="menu__item">
+        <i [class]="menuItem.iconClass"></i>
+      </div>
+    </a>
+  </ng-container>
 </div>

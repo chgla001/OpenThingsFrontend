@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimetrackerComponent } from './timetracker.component';
+import { TimetrackerPageComponent } from './timetracker-page.component';
 
-describe('TimetrackerComponent', () => {
-  let component: TimetrackerComponent;
-  let fixture: ComponentFixture<TimetrackerComponent>;
+describe('TimetrackerPageComponent', () => {
+  let component: TimetrackerPageComponent;
+  let fixture: ComponentFixture<TimetrackerPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimetrackerComponent ]
+      declarations: [ TimetrackerPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimetrackerComponent);
+    fixture = TestBed.createComponent(TimetrackerPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
