@@ -1,0 +1,31 @@
+.menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 55px;
+  height: 55px;
+  border-top-left-radius: 100%;
+  background: #cecece;
+
+  &__icon {
+    font-size: 2rem;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+    translate: bottom right 0.5s;
+  }
+
+  &__item {
+    display: inline;
+    position: absolute;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 15px;
+    border-radius: 50%;
+    right: 20px;
+    bottom: 20px;
+    background-color: #cecece;
+  }
+}

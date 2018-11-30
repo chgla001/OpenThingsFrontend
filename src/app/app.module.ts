@@ -8,10 +8,12 @@ import { RouterModule } from '@angular/router';
 
 /* Components */
 import { AppComponent } from './app.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { FolderlistComponent } from './components/folderlist/folderlist.component';
 import { NotelistComponent } from './components/notelist/notelist.component';
 import { EditviewComponent } from './components/editview/editview.component';
 import { EditorPageComponent } from './components/editor-page/editor-page.component';
+import { TimetrackerComponent } from './components/timetracker/timetracker.component';
 
 /* Adding Electron */
 import { NgxElectronModule } from 'ngx-electron';
@@ -20,6 +22,8 @@ import { NgxElectronModule } from 'ngx-electron';
 /* Pipes */
 import { SearchNoteFilter } from './pipes/search-note-filter.pipe';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,9 @@ import { SearchNoteFilter } from './pipes/search-note-filter.pipe';
     NotelistComponent,
     EditviewComponent,
     EditorPageComponent,
-    SearchNoteFilter
+    SearchNoteFilter,
+    TimetrackerComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
